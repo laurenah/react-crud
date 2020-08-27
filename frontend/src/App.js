@@ -5,6 +5,7 @@ import config from './config.js';
 import About from './components/about.js';
 import Contact from './components/contact.js';
 import Home from './components/home.js';
+import Admin from './components/admin.js';
 
 import {
   BrowserRouter as Router,
@@ -14,16 +15,6 @@ import {
 } from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props) {
-    super (props)
-    this.state = {users: []}
-  }
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({users: users}));
-  }
 
   render() {
     return (
@@ -41,14 +32,8 @@ class App extends React.Component {
               <Route path='/implicit/callback' component={LoginCallback} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
+              <Route path='/admin' component={Admin} />
             </Switch>
-
-            <div className='users'>
-              <h1>Users</h1>
-              {this.state.users.map(user => 
-                <div key={user.id}>{user.name} - {user.email}</div>
-              )}
-            </div>
           </div>
         </Security>
       </Router>        

@@ -5,8 +5,8 @@ const Home = () => {
     const { authState, authService } = useOktaAuth();
 
     const login = async () => {
-        // redirect to '/' after login
-        authService.login('/');
+        // redirect to '/admin' after login
+        authService.login('/admin');
     }
 
     const logout = async() => {
@@ -18,9 +18,18 @@ const Home = () => {
         return <div>Loading...</div>;
     }
 
-    return authState.isAuthenticated ?
+    const loginButton = authState.isAuthenticated ?
         <button onClick={logout}>Logout</button> :
-        <button onClick={login}>Login</button>;
+        <button onClick={login}>Login</button>
+
+    return (
+       <div>
+           <p>We're at home</p>
+           {loginButton}
+       </div>
+
+    );
+        
 }    
 
 
