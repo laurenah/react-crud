@@ -14,6 +14,7 @@ import {
   Link
 } from "react-router-dom";
 
+// Root React Component
 class App extends React.Component {
 
   render() {
