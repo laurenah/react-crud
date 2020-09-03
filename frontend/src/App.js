@@ -19,25 +19,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Security {...config}>
-          <div>
-            <ul>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/about'>About</Link></li>
-              <li><Link to='/contact'>Contact</Link></li>
-            </ul>
+      <div class='outer-container'>
+        <Router>
+          <Security {...config}>
+            <div>
+              <ul class='nav'>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/about'>About</Link></li>
+                <li><Link to='/contact'>Contact</Link></li>
+              </ul>
 
-            <Switch>
-              <Route path='/' exact={true} component={Home} />
-              <Route path='/implicit/callback' component={LoginCallback} />
-              <Route path='/about' component={About} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/admin' component={Admin} />
-            </Switch>
-          </div>
-        </Security>
-      </Router>        
+              <Switch>
+                <Route path='/' exact={true} component={Home} />
+                <Route path='/implicit/callback' component={LoginCallback} />
+                <Route path='/about' component={About} />
+                <Route path='/contact' component={Contact} />
+                <Route path='/admin' component={Admin} />
+              </Switch>
+            </div>
+          </Security>
+        </Router>
+      </div>      
     );
   }
 }

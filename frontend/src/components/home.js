@@ -23,7 +23,7 @@ const Home = () => {
         <button onClick={login}>Login</button>
 
     return (
-       <div>
+       <div class='container'>
            <p>We're at home</p>
            {loginButton}
        </div>
