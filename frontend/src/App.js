@@ -19,16 +19,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div class='outer-container'>
+      <div>
         <Router>
           <Security {...config}>
-            <div>
-              <ul class='nav'>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/about'>About</Link></li>
-                <li><Link to='/contact'>Contact</Link></li>
-              </ul>
-
+              <div class='router-nav'>
+                <ul>
+                  <li><Link to='/'>Home</Link></li>
+                  <li><Link to='/about'>About</Link></li>
+                  <li><Link to='/contact'>Contact</Link></li>
+                </ul>
+              </div>
               <Switch>
                 <Route path='/' exact={true} component={Home} />
                 <Route path='/implicit/callback' component={LoginCallback} />
@@ -36,10 +36,9 @@ class App extends React.Component {
                 <Route path='/contact' component={Contact} />
                 <Route path='/admin' component={Admin} />
               </Switch>
-            </div>
           </Security>
         </Router>
-      </div>      
+      </div>    
     );
   }
 }
