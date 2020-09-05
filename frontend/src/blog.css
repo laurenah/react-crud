@@ -1,0 +1,87 @@
+:root {
+    --main-bg-color: #F4F2F3;
+    --primary-color: #FF8A5B;
+    --secondary-color: #5EB1BF;
+    --secondary-dark-color: #27474E;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Blog Card */
+
+.blog-card {
+    width: 40%;
+    margin: 1rem auto;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.6%;
+    background: white;
+    line-height: 1.4;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .blog-card {
+        width: 80%;
+    }
+}
+
+.blog-card a,
+.blog-card a:visited {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: 1s;
+}
+
+.blog-card a:hover {
+    text-decoration: none;
+    color: var(--secondary-dark-color);
+}
+
+.description {
+    padding: 1rem;
+    background: white;
+    position: relative;
+    z-index: 1;
+}
+
+.description h1 {
+    color: var(--secondary-dark-color);
+    line-height: 1;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.description p:first-of-type::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 40px;
+    top: 5.2em;
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+.description h2 {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+.read-more {
+    text-align: right;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.read-more a {
+    display: inline-block;
+    position: relative;
+}

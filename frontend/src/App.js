@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {Security, LoginCallback} from '@okta/okta-react';
 import config from './config.js';
-import About from './components/about.js';
+import Blog from './components/blog.js';
 import Contact from './components/contact.js';
 import Home from './components/home.js';
 import Admin from './components/admin.js';
@@ -10,8 +10,7 @@ import Admin from './components/admin.js';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // Root React Component
@@ -22,17 +21,10 @@ class App extends React.Component {
       <div>
         <Router>
           <Security {...config}>
-              <div class='router-nav'>
-                <ul>
-                  <li><Link to='/'>Home</Link></li>
-                  <li><Link to='/about'>About</Link></li>
-                  <li><Link to='/contact'>Contact</Link></li>
-                </ul>
-              </div>
               <Switch>
                 <Route path='/' exact={true} component={Home} />
                 <Route path='/implicit/callback' component={LoginCallback} />
-                <Route path='/about' component={About} />
+                <Route path='/blog' component={Blog} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/admin' component={Admin} />
               </Switch>
