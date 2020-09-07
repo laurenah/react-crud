@@ -24,14 +24,14 @@ const Home = () => {
         <li onClick={login}><a href='/'>Login</a></li>
 
     return (
-        <div class='outer-container'>
-		<div class='header'>
-			<div class='header-content'>
-				<div class='logo'>
+        <div className='outer-container'>
+		<div className='header'>
+			<div className='header-content'>
+				<div className='logo'>
 					<Logo className='monstera' />
 				</div>
-				<div class='info'>
-					<div class='nav'>
+				<div className='info'>
+					<div className='nav'>
 						<ul>
 							<li><a href='/'>Home</a></li>
 							<li><a href='/blog'>Blog</a></li>
@@ -39,21 +39,21 @@ const Home = () => {
                             {loginButton}
 						</ul>
 					</div>
-					<div class='subtitle'>I'm a third generation programmer, passionate about problem solving and
+					<div className='subtitle'>I'm a third generation programmer, passionate about problem solving and
 						learning new things. I love to read, play card games and video games. Some of the most underrated things
 						in life are: lying in the grass on a summer's day, seeing the starry sky in a place far from light
 						pollution, camping with friends, the smell of rain on dry earth (petrichor!).</div>
 				</div>
 			</div>
 		</div>
-		<div class='container'>
+		<div className='container'>
 			<div id='wrapper'>
 				<div id='row'>
 					<div id='blog'>
-						<div class='entry'>
-							<div class='title'>
+						<div className='entry'>
+							<div className='title'>
 								<h2>The Odd One Out</h2>
-								<span class='byline'>Aug 28. 2020</span>
+								<span className='byline'>Aug 28. 2020</span>
 							</div>
 							<p>For my last two years of high school, I decided to leave the school I had attended for
 								the first 16 years of my life in order to specialise for the university degree I wanted. This meant
@@ -76,16 +76,16 @@ const Home = () => {
 								ears off every other person in the class for constantly slacking off (Halo LAN game anyone?) and gave
 								thrilling 100+ page PowerPoint presentations about each learning outcome.</p>
 						</div>
-						<div class='entry'>
+						<div className='entry'>
 
 						</div>
 					</div>
 					<div id='projects'>
-						<div class="title">
+						<div className="title">
 							<h2>Projects</h2>
 						</div>
-						<ul class='style1'>
-							<li class='first'>
+						<ul className='style1'>
+							<li className='first'>
 								<h3>Portfolio Website</h3>
 								<p>You're looking at it right now! This site is built using React with a
 									Node/Express backend that communicates with a MySQL database.</p>
@@ -103,7 +103,7 @@ const Home = () => {
 									game, and provides a guide to other mechanics in the game.</p>
 							</li>
 							<li>
-								<div class='copyright'>
+								<div className='copyright'>
 									<ul>
 										<li>lauren hammond © 2020</li>
 										<li><a href='https://github.com/laurenah'>Github</a></li>
