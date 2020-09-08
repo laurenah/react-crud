@@ -31,7 +31,7 @@ const Home = () => {
 					<Logo className='monstera' />
 				</div>
 				<div className='info'>
-					<div className='nav'>
+					<div className='nav-home'>
 						<ul>
 							<li><a href='/'>Home</a></li>
 							<li><a href='/blog'>Blog</a></li>
