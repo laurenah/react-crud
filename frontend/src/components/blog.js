@@ -1,7 +1,9 @@
+// imports
 import React from 'react';
 import '../blog.css';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
 
+// Blog functional component - is the Blog page accessible via the Home page
 const Blog = () =>{
 
     return (

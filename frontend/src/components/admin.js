@@ -1,11 +1,14 @@
 // imports
-import React, { useState, useEffect, useCallback } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { Redirect, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import '../admin.css';
+import Users from './subcomponents/Users.js';
+import BlogPost from './subcomponents/BlogPost.js';
 
-// Admin functional component
+// Admin functional component - Holds the main template for the Admin portal
 const Admin = () => {
+    const { path, url } = useRouteMatch();
     const toggleSidebar = useCallback(() => {
         var sidebar = document.getElementById('layoutSidenav_nav');
         var content = document.getElementById('layoutSidenav_content');
@@ -23,19 +26,8 @@ const Admin = () => {
             content.style.marginLeft = '-225px';
         }
     }, []);
-
-    const [users, setUsers] = useState([]); // array of users and state setter
+    
     const { authState, authService } = useOktaAuth(); // state and service for okta
-
-    useEffect(() => { // hooks version of componentDidMount, gets users and sets state
-        let isMounted = true; // flag denotes mount status to avoid memory leaks
-        fetch('/users')
-            .then(res => res.json())
-            .then(users => {
-                if (isMounted) setUsers(users);
-            })
-            return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
-    }, []);
 
     const logout = () => {
         // redirect to '/' after logout
@@ -54,7 +46,7 @@ const Admin = () => {
     return (
         <div>
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">lh CMS</a>
+                <Link to='/' className="navbar-brand">lh CMS</Link>
                 <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" onClick={toggleSidebar}><i className="fas fa-bars"></i></button>
                 {/* <!-- Logout Button --> */}
                 <ul className="d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -67,32 +59,27 @@ const Admin = () => {
                         <div className="sb-sidenav-menu">
                             <div className="nav">
                                 <div className="sb-sidenav-menu-heading">Core</div>
-                                <a className="nav-link" href="/">
-                                    Dashboard
-                                </a>
+                                    <Link to={url} className="nav-link">Dashboard</Link>
+
                                 <div className="sb-sidenav-menu-heading">Interface</div>
-                                <a className="nav-link collapsed" href="/">
-                                    Blog
-                                </a>
-                                <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                    <nav className="sb-sidenav-menu-nested nav">
-                                        <a className="nav-link" href="/">Posts</a>
-                                    </nav>
-                                </div>
+                                    <Link to={`${url}/blog`} className="nav-link">Blog</Link>
                             </div>
                         </div>
                     </nav>
                 </div>
                 <div id="layoutSidenav_content">
                     <main>
-                        <div className="container-fluid">
-                            <div className='users'>
-                                <h1>Users</h1>
-                                {users.map(user => // map users to html elements
-                                    <div key={user.id}>{user.name} - {user.email}</div>
-                                )}
-                            </div>
-                        </div>
+                        {/* Switch for toggling content in main frame */}
+                        <Switch>
+                            <Route exact path={path}>
+                                <Users />
+                            </Route>
+
+                            <Route path={`${path}/blog`}>
+                                <BlogPost />
+                            </Route>
+                        </Switch>
+                        
                     </main>
                     <footer className="py-4 bg-light mt-auto">
                         <div className="container-fluid">
