@@ -4,21 +4,21 @@ import { Redirect, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import '../admin.css';
 import Users from './subcomponents/Users.js';
-import BlogPost from './subcomponents/BlogPost.js';
+import AdminFooter from './subcomponents/AdminFooter';
+import AdminSidebar from './subcomponents/AdminSidebar';
+import BlogList from './subcomponents/BlogList';
 
 // Admin functional component - Holds the main template for the Admin portal
 const Admin = () => {
-    const { path, url } = useRouteMatch();
+    const { path } = useRouteMatch(); // store path and url for Router switch
+    // Callback for Sidebar toggling
     const toggleSidebar = useCallback(() => {
         var sidebar = document.getElementById('layoutSidenav_nav');
         var content = document.getElementById('layoutSidenav_content');
         var sideStyle = getComputedStyle(sidebar);
-        var contentStyle = getComputedStyle(content);
-        var contentMargin = contentStyle.marginLeft;
-        console.log(contentMargin);
         var translate = sideStyle.transform;
 
-        if (translate === 'matrix(1, 0, 0, 1, -225, 0)') {
+        if (translate === 'matrix(1, 0, 0, 1, -225, 0)') { // if off-screen, bring back on-screen
             sidebar.style.transform = 'none';
             content.style.marginLeft = '0';
         } else {
@@ -45,7 +45,7 @@ const Admin = () => {
 
     return (
         <div>
-            <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark"> 
                 <Link to='/' className="navbar-brand">lh CMS</Link>
                 <button className="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" onClick={toggleSidebar}><i className="fas fa-bars"></i></button>
                 {/* <!-- Logout Button --> */}
@@ -53,8 +53,10 @@ const Admin = () => {
                     {loginButton}
                 </ul>
             </nav>
+
             <div id="layoutSidenav">
-                <div id="layoutSidenav_nav">
+                <AdminSidebar />
+                {/* <div id="layoutSidenav_nav">
                     <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                         <div className="sb-sidenav-menu">
                             <div className="nav">
@@ -66,7 +68,7 @@ const Admin = () => {
                             </div>
                         </div>
                     </nav>
-                </div>
+                </div> */}
                 <div id="layoutSidenav_content">
                     <main>
                         {/* Switch for toggling content in main frame */}
@@ -76,18 +78,12 @@ const Admin = () => {
                             </Route>
 
                             <Route path={`${path}/blog`}>
-                                <BlogPost />
+                                <BlogList />
                             </Route>
                         </Switch>
                         
                     </main>
-                    <footer className="py-4 bg-light mt-auto">
-                        <div className="container-fluid">
-                            <div className="d-flex align-items-center justify-content-between small">
-                                <div className="text-muted">lh &copy; 2020</div>
-                            </div>
-                        </div>
-                    </footer>
+                    <AdminFooter />
                 </div>
             </div>
             <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossOrigin="anonymous"></script>

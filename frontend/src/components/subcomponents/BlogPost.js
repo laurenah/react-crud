@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../blog.css';
 
+// BlogPost function component
+// Might change to render individual blog posts fetched via id
 const BlogPost = () =>{
 
     return (
