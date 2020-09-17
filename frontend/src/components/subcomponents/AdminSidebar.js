@@ -1,6 +1,6 @@
 // imports
 import React from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useRouteMatch, NavLink } from 'react-router-dom';
 
 // Admin Sidebar functional component - Stores sidebar links
 const AdminSidebar = () => {
@@ -12,10 +12,10 @@ const AdminSidebar = () => {
                 <div className="sb-sidenav-menu">
                     <div className="nav">
                         <div className="sb-sidenav-menu-heading">Core</div>
-                            <Link to={url} className="nav-link">Dashboard</Link>
+                            <NavLink to={url} className="nav-link">Dashboard</NavLink>
 
                         <div className="sb-sidenav-menu-heading">Interface</div>
-                            <Link to={`${url}/blog`} className="nav-link">Blog</Link>
+                            <NavLink to={`${url}/blog`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>Blog</NavLink>
                     </div>
                 </div>
             </nav>

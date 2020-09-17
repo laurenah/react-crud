@@ -56,19 +56,6 @@ const Admin = () => {
 
             <div id="layoutSidenav">
                 <AdminSidebar />
-                {/* <div id="layoutSidenav_nav">
-                    <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                        <div className="sb-sidenav-menu">
-                            <div className="nav">
-                                <div className="sb-sidenav-menu-heading">Core</div>
-                                    <Link to={url} className="nav-link">Dashboard</Link>
-
-                                <div className="sb-sidenav-menu-heading">Interface</div>
-                                    <Link to={`${url}/blog`} className="nav-link">Blog</Link>
-                            </div>
-                        </div>
-                    </nav>
-                </div> */}
                 <div id="layoutSidenav_content">
                     <main>
                         {/* Switch for toggling content in main frame */}
