@@ -11,11 +11,12 @@ const AdminSidebar = () => {
             <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div className="sb-sidenav-menu">
                     <div className="nav">
-                        <div className="sb-sidenav-menu-heading">Core</div>
+                        <div className="sb-sidenav-menu-heading"></div>
                             <NavLink to={url} className="nav-link">Dashboard</NavLink>
 
-                        <div className="sb-sidenav-menu-heading">Interface</div>
-                            <NavLink to={`${url}/blog`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>Blog</NavLink>
+                        <div className="sb-sidenav-menu-heading">Content</div>
+                            <NavLink to={`${url}/blog`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>Blog List</NavLink>
+                            <NavLink to={`${url}/post`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>New Post</NavLink>
                     </div>
                 </div>
             </nav>

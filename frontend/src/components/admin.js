@@ -7,6 +7,7 @@ import Users from './subcomponents/Users.js';
 import AdminFooter from './subcomponents/AdminFooter';
 import AdminSidebar from './subcomponents/AdminSidebar';
 import BlogList from './subcomponents/BlogList';
+import BlogCreate from './subcomponents/BlogCreate';
 
 // Admin functional component - Holds the main template for the Admin portal
 const Admin = () => {
@@ -66,6 +67,10 @@ const Admin = () => {
 
                             <Route path={`${path}/blog`}>
                                 <BlogList />
+                            </Route>
+
+                            <Route path={`${path}/post`}>
+                                <BlogCreate />
                             </Route>
                         </Switch>
                         
