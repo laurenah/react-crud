@@ -19,12 +19,12 @@ class BlogCreate extends React.Component {
         this.setState({title: event.target.value});
     }
 
-    handleTextChange(content, editor) {
+    handleTextChange(content, editor) { // change for Text Editor
         this.setState({content});
     }
 
     handleSubmit(event) { // handle submit of form
-        console.log('title: ' + this.state.title + 'text: ' + this.state.text);
+        console.log(`title: <h1>${this.state.title}</h1> text: ${this.state.content}`);
         event.preventDefault();
     }
 
@@ -38,6 +38,7 @@ class BlogCreate extends React.Component {
                     </label>
                     <br/>
                     <label className='editor'>Content<br/>
+                        {/* TinyMCE Editor */}
                         <Editor
                             apiKey={tiny_config}
                             value={this.state.content}
