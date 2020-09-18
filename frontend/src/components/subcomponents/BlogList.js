@@ -19,19 +19,19 @@ const BlogList = () => {
             <div className='users'>
                 <h1>Posts</h1>
                 <div className="table-responsive">
-                    <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
+                    <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0" style={{tableLayout: 'fixed'}}>
                         <thead>
                             <tr>
-                                <th>Title</th>
+                                <th style={{width: '20%'}}>Title</th>
                                 <th>Content</th>
-                                <th>Created</th>
+                                <th style={{width: '20%'}}>Created</th>
                             </tr>
                         </thead>
                         <tbody>
                         {posts.map(post => // map users to html elements
                             <tr key={post.id}>
                                 <td>{post.title}</td>
-                                <td>{post.content}</td>
+                                <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{post.content}</td>
                                 <td>{new Date(post.created).toLocaleDateString('en-US', {
                                     month: 'short',
                                     day: '2-digit',
