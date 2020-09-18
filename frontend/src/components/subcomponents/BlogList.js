@@ -31,7 +31,7 @@ const BlogList = () => {
                         {posts.map(post => // map users to html elements
                             <tr key={post.id}>
                                 <td>{post.title}</td>
-                                <td>{post.text}</td>
+                                <td>{post.content}</td>
                                 <td>{new Date(post.created).toLocaleDateString('en-US', {
                                     month: 'short',
                                     day: '2-digit',

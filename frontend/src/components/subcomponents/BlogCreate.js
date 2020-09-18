@@ -26,6 +26,19 @@ class BlogCreate extends React.Component {
     handleSubmit(event) { // handle submit of form
         console.log(`title: <h1>${this.state.title}</h1> text: ${this.state.content}`);
         event.preventDefault();
+        
+        // Post request to send blog data
+        fetch('/posts', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'title': this.state.title,
+                'content': this.state.content
+            })
+        }).then(res => res.json());
     }
 
     render() {
