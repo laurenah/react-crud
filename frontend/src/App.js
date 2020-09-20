@@ -3,10 +3,10 @@ import React from 'react';
 import './App.css';
 import {Security, LoginCallback} from '@okta/okta-react';
 import config from './config.js';
-import Blog from './components/blog.js';
-import Contact from './components/contact.js';
-import Home from './components/home.js';
-import Admin from './components/admin.js';
+import Blog from './components/Blog.js';
+import Contact from './components/Contact.js';
+import Home from './components/Home.js';
+import Admin from './components/Admin.js';
 
 import {
   BrowserRouter as Router,

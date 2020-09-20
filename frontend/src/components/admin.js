@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { Redirect, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import '../admin.css';
-import Users from './subcomponents/Users.js';
 import AdminFooter from './subcomponents/AdminFooter';
 import AdminSidebar from './subcomponents/AdminSidebar';
 import BlogList from './subcomponents/BlogList';
@@ -62,7 +61,7 @@ const Admin = () => {
                         {/* Switch for toggling content in main frame */}
                         <Switch>
                             <Route exact path={path}>
-                                <Users />
+                                <h2>Dashboard</h2>
                             </Route>
 
                             <Route path={`${path}/blog`}>
