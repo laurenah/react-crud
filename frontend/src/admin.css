@@ -756,6 +756,22 @@ body {
 
 .actions-col {
   width: 10%;
+  margin: 0;
+}
+
+.actions-col button {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.actions-col ul {
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+.actions-col ul li {
+  display: inline;
 }
 
 @media screen and (max-width: 760px) {

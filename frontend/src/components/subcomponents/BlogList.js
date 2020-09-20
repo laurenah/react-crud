@@ -14,6 +14,15 @@ const BlogList = () => {
             return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
     }, []);
 
+    function handleDelete(id) {
+        console.log(id);
+        // remove post
+        if (window.confirm('Are you sure you wish to delete this post?')) {
+            const newPosts = posts.filter((item) => item.id !== id);
+            setPosts(newPosts);
+        }
+    }
+
     return (
         <div className="container-fluid">
             <div className='users'>
@@ -38,7 +47,12 @@ const BlogList = () => {
                                     day: '2-digit',
                                     year: 'numeric'
                                 })}</td>
-                                <td className='actions-col'></td>
+                                <td className='actions-col'>
+                                    <ul>
+                                        <li><button onClick={() => handleDelete(post.id)}><img src='https://systemuicons.com/images/icons/trash.svg' alt='delete'/></button></li>
+                                        <li><img src='https://systemuicons.com/images/icons/create.svg' alt='edit'/></li>
+                                    </ul>
+                                </td>
                             </tr>
                         )}
                         </tbody>
