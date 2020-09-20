@@ -24,7 +24,8 @@ const BlogList = () => {
                             <tr>
                                 <th style={{width: '20%'}}>Title</th>
                                 <th>Content</th>
-                                <th style={{width: '20%'}}>Created</th>
+                                <th className='created-col' style={{width: '20%'}}>Created</th>
+                                <th className='actions-col'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,11 +33,12 @@ const BlogList = () => {
                             <tr key={post.id}>
                                 <td>{post.title}</td>
                                 <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{post.content}</td>
-                                <td>{new Date(post.created).toLocaleDateString('en-US', {
+                                <td className='created-col'>{new Date(post.created).toLocaleDateString('en-US', {
                                     month: 'short',
                                     day: '2-digit',
                                     year: 'numeric'
                                 })}</td>
+                                <td className='actions-col'></td>
                             </tr>
                         )}
                         </tbody>

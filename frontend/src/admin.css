@@ -753,3 +753,17 @@ body {
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
   color: #fff;
 }
+
+.actions-col {
+  width: 10%;
+}
+
+@media screen and (max-width: 760px) {
+  .created-col {
+    display: none;
+  }
+
+  .actions-col {
+    width: 20%;
+  }
+}
