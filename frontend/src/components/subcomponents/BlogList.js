@@ -20,6 +20,17 @@ const BlogList = () => {
         if (window.confirm('Are you sure you wish to delete this post?')) {
             const newPosts = posts.filter((item) => item.id !== id);
             setPosts(newPosts);
+
+            fetch('/posts', {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'id': id
+                })
+            }).then(res => res.json());
         }
     }
 

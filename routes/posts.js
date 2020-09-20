@@ -13,10 +13,16 @@ router.get('/', (req, res, next) => {
 // POST blog post
 router.post('/', (req, res) => {
   var blog = req.body;
-  console.log(`INSERT INTO posts (title, content) VALUES ("${blog.title}", "${blog.content}")`);
   connection.query(`INSERT INTO posts (title, content) VALUES ("${blog.title}", "${blog.content}")`, (err, results) => {
     if (err) throw err;
-    console.log(results);
+  })
+});
+
+// DELETE a blog post
+router.delete('/', (req, res) => {
+  var id = req.body.id;
+  connection.query(`DELETE FROM posts WHERE id=${id}`, (err, results) => {
+    if (err) throw err;
   })
 });
 
