@@ -78,6 +78,7 @@ body {
   .header-content {
     width: 90%;
   }
+
   .monstera {
     width: 80%;
   }
@@ -394,4 +395,22 @@ ul.style1 a:hover {
 
 #projects>ul>li:nth-child(4) {
   padding: 10px;
+}
+
+/* Loader */
+.loader {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  top: 50%;
+}
+
+.loader p {
+  text-align: center;
+  animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }

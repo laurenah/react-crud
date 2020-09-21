@@ -17,12 +17,12 @@ const Home = () => {
     }
 
     if (authState.isPending) {
-        return <div>Loading...</div>;
+		return <div className='loader'><p>Loading...</p></div>;
     }
 
     const loginButton = authState.isAuthenticated ?
-        <li onClick={logout}><a href='/'>Logout</a></li> :
-        <li onClick={login}><a href='/'>Login</a></li>
+        <li onClick={logout}><a href='/'>logout</a></li> :
+        <li onClick={login}><a href='/'>dev login</a></li>
 
     return (
         <div className='outer-container'>
@@ -37,7 +37,6 @@ const Home = () => {
 							<li><a href='/'>Home</a></li>
 							<li><a href='/blog'>Blog</a></li>
 							<li><a href='/contact'>Contact</a></li>
-                            {loginButton}
 						</ul>
 					</div>
 					<div className='subtitle'>I'm a third generation programmer, passionate about problem solving and
@@ -71,8 +70,8 @@ const Home = () => {
 							</li>
 							<li>
 								<h3>ACNH Companion App for iOS</h3>
-								<p>A companion app for Nintendo's Animal Crossing New Horizons. It fetches data from
-									<a href='https://acnhapi.com'>ACNH API</a> to display the fish and bugs in the
+								<p>A companion app for Nintendo's Animal Crossing New Horizons. It fetches data from 
+									<a href='https://acnhapi.com'> ACNH API</a> to display the fish and bugs in the
 									game, and provides a guide to other mechanics in the game.</p>
 							</li>
 							<li>
@@ -81,6 +80,7 @@ const Home = () => {
 										<li>lauren hammond © 2020</li>
 										<li><a href='https://github.com/laurenah'>Github</a></li>
 										<li><a href='https://www.linkedin.com/in/lauren-h-81917ab4/'>Linkedin</a></li>
+										{loginButton}
 									</ul>
 								</div>
 							</li>
