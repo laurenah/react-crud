@@ -2,10 +2,11 @@ import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import tiny_config from './../../tiny-config.js';
 
-class BlogCreate extends React.Component {
+class BlogEdit extends React.Component {
     constructor(props) {
         super (props);
         this.state = {
+            id: props.match.params.postId,
             title: '',
             content: ''
         }
@@ -13,6 +14,17 @@ class BlogCreate extends React.Component {
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        fetch('/posts/' + this.state.id)
+            .then(res => res.json())
+            .then(post => {
+                this.setState({
+                    title: post[0].title,
+                    content: post[0].content
+                });
+            });
     }
 
     handleTitleChange(event) { // change for Title input
@@ -26,9 +38,9 @@ class BlogCreate extends React.Component {
     handleSubmit(event) { // handle submit of form
         event.preventDefault();
         
-        // Post request to send blog data
-        fetch('/posts', {
-            method: 'POST',
+        // Put request to update blog data
+        fetch('/posts/' + this.state.id, {
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -37,13 +49,14 @@ class BlogCreate extends React.Component {
                 'title': this.state.title,
                 'content': this.state.content
             })
-        }).then(res => res.json());
+        }).then(alert('Post updated!'))
+        .then(window.location = '../blog');
     }
 
     render() {
         return(
             <div className="container-fluid">
-                <h1>New Blog Post</h1>
+                <h1>Editing {this.state.title}</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>Title<br/>
                         <input type='text' value={this.state.title} onChange={this.handleTitleChange} />
@@ -62,7 +75,7 @@ class BlogCreate extends React.Component {
                         />
                     </label>
                     <br/>
-                    <input type='submit' value='Post' />
+                    <input type='submit' value='Save' />
                 </form>
                 
             </div>
@@ -70,4 +83,4 @@ class BlogCreate extends React.Component {
     }
 }
 
-export default BlogCreate;
+export default BlogEdit;

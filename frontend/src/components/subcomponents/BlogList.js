@@ -15,7 +15,6 @@ const BlogList = () => {
     }, []);
 
     function handleDelete(id) {
-        console.log(id);
         // remove post
         if (window.confirm('Are you sure you wish to delete this post?')) {
             const newPosts = posts.filter((item) => item.id !== id);
@@ -32,6 +31,10 @@ const BlogList = () => {
                 })
             }).then(res => res.json());
         }
+    }
+
+    function handleUpdate(id) {
+        window.location = 'post/' + id;
     }
 
     return (
@@ -60,8 +63,10 @@ const BlogList = () => {
                                 })}</td>
                                 <td className='actions-col'>
                                     <ul>
-                                        <li><button onClick={() => handleDelete(post.id)}><img src='https://systemuicons.com/images/icons/trash.svg' alt='delete'/></button></li>
-                                        <li><img src='https://systemuicons.com/images/icons/create.svg' alt='edit'/></li>
+                                        <li><button onClick={() => handleDelete(post.id)}>
+                                            <img src='https://systemuicons.com/images/icons/trash.svg' alt='delete'/></button></li>
+                                        <li><button onClick={() => handleUpdate(post.id)}>
+                                            <img src='https://systemuicons.com/images/icons/create.svg' alt='edit'/></button></li>
                                     </ul>
                                 </td>
                             </tr>

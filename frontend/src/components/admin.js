@@ -7,6 +7,7 @@ import AdminFooter from './subcomponents/AdminFooter';
 import AdminSidebar from './subcomponents/AdminSidebar';
 import BlogList from './subcomponents/BlogList';
 import BlogCreate from './subcomponents/BlogCreate';
+import BlogEdit from './subcomponents/BlogEdit';
 
 // Admin functional component - Holds the main template for the Admin portal
 const Admin = () => {
@@ -68,9 +69,16 @@ const Admin = () => {
                                 <BlogList />
                             </Route>
 
-                            <Route path={`${path}/post`}>
+                            <Route exact path={`${path}/post`}>
                                 <BlogCreate />
                             </Route>
+
+                            <Route 
+                                path={`${path}/post/:postId`}
+                                render={(props) => ( // allows for props to be passed like the post ID
+                                <BlogEdit {...props} />
+                                )}
+                            />
                         </Switch>
                         
                     </main>

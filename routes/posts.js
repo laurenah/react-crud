@@ -10,6 +10,22 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// GET a single blog post
+router.get('/:id', (req, res) => {
+  var id = req.params.id
+  connection.query(`SELECT * from posts WHERE id=${id}`, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify(results));
+  })
+});
+
+router.put('/:id', (req, res) => {
+  connection.query(`UPDATE posts SET title = "${req.body.title}", content = "${req.body.content}"
+                        WHERE id = ${req.params.id}`, (err, results) => {
+    if (err) throw err;
+  })
+})
+
 // POST blog post
 router.post('/', (req, res) => {
   var blog = req.body;
