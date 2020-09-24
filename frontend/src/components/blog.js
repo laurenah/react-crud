@@ -1,5 +1,6 @@
 // imports
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../blog.css';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
 
@@ -19,10 +20,6 @@ const Blog = () =>{
 
     const truncate = (text) => {
         return text.substring(0, 200) + '...';
-    }
-
-    const handlePost = (id) => {
-        window.location = 'blog/' + id;
     }
 
     return (
@@ -47,7 +44,10 @@ const Blog = () =>{
                                 })}</h2>
                             <p>{truncate(post.content)}</p>
                             <p className="read-more">
-                                <button onClick={() => handlePost(post.id)}>Read More {'>'}</button>
+                                <Link to={{
+                                    pathname: 'blog/' + post.id,
+                                    state: {post: post}
+                                }}>Read More {'>'}</Link>
                             </p>
                         </div>
                     </div>

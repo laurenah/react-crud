@@ -31,7 +31,7 @@ class App extends React.Component {
                 <Route path='/admin' component={Admin} />
                 <Route 
                     path={'/blog/:postId'}
-                    render={(props) => ( // allows for props to be passed like the post ID
+                    render={(props) => (// allows for props to be passed like the post ID
                     <BlogPost {...props} />
                     )}
                 />

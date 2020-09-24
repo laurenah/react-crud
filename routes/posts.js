@@ -10,6 +10,15 @@ router.get('/', (req, res, next) => {
   });
 });
 
+// GET the Latest blog post
+router.get('/latest', (req, res) => {
+  console.log('get latest')
+  connection.query(`SELECT * from posts ORDER BY id DESC LIMIT 1`, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify(results));
+  });
+});
+
 // GET a single blog post
 router.get('/:id', (req, res) => {
   var id = req.params.id
@@ -19,6 +28,7 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// UPDATE a single blog post
 router.put('/:id', (req, res) => {
   connection.query(`UPDATE posts SET title = "${req.body.title}", content = "${req.body.content}"
                         WHERE id = ${req.params.id}`, (err, results) => {

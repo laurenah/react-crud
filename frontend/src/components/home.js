@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
-import BlogPost from './subcomponents/BlogPost.js';
+import BlogLatest from './subcomponents/BlogLatest';
 
 const Home = () => {
     const { authState, authService } = useOktaAuth();
@@ -50,7 +50,7 @@ const Home = () => {
 			<div id='wrapper'>
 				<div id='row'>
 					<div id='blog'>
-						
+						<BlogLatest />
 					</div>
 					<div id='projects'>
 						<div className="title">

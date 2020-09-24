@@ -1,29 +1,17 @@
 import React from 'react';
 import '../../blog.css';
 
-// BlogPost function component
-// Might change to render individual blog posts fetched via id
+// BlogPost component
 class BlogPost extends React.Component {
     constructor(props) {
         super (props);
+        console.log(props.location.state.post)
         this.state = {
-            id: props.match.params.postId,
-            title: '',
-            content: '',
-            created: ''
+            id: props.location.state.post.id,
+            title: props.location.state.post.title,
+            content: props.location.state.post.content,
+            created: props.location.state.post.created,
         }
-    }
-
-    componentDidMount() {
-        fetch('/posts/' + this.state.id)
-            .then(res => res.json())
-            .then(post => {
-                this.setState({
-                    title: post[0].title,
-                    content: post[0].content,
-                    created: post[0].created
-                });
-            });
     }
 
     render() {
@@ -41,7 +29,6 @@ class BlogPost extends React.Component {
             </div> 
         );
     }
-    
 }
 
 export default BlogPost;
