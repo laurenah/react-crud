@@ -69,7 +69,10 @@ class BlogEdit extends React.Component {
                             value={this.state.content}
                             init={{
                                 height: 400,
-                                menubar: true
+                                menubar: true,
+                                force_br_newlines: true,
+                                force_p_newlines: false,
+                                forced_root_block: '',
                             }}
                             onEditorChange={this.handleTextChange}
                         />

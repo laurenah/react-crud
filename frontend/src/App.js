@@ -7,6 +7,7 @@ import Blog from './components/Blog.js';
 import Contact from './components/Contact.js';
 import Home from './components/Home.js';
 import Admin from './components/Admin.js';
+import BlogPost from './components/subcomponents/BlogPost.js';
 
 import {
   BrowserRouter as Router,
@@ -23,11 +24,17 @@ class App extends React.Component {
         <Router>
           <Security {...config}>
               <Switch>
-                <Route path='/' exact={true} component={Home} />
+                <Route exact path='/' component={Home} />
                 <Route path='/implicit/callback' component={LoginCallback} />
-                <Route path='/blog' component={Blog} />
+                <Route exact path='/blog' component={Blog} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/admin' component={Admin} />
+                <Route 
+                    path={'/blog/:postId'}
+                    render={(props) => ( // allows for props to be passed like the post ID
+                    <BlogPost {...props} />
+                    )}
+                />
               </Switch>
           </Security>
         </Router>

@@ -625,17 +625,17 @@ button::-moz-focus-inner {
   }
 
   .table {
-    border-collapse: collapse !important;
+    border-collapse: collapse;
   }
 
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: #fff;
   }
 
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #dee2e6 !important;
+    border: 1px solid #dee2e6;
   }
 }
 

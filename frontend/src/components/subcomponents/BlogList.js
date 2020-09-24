@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 
 const BlogList = () => {
-    const [posts, setPosts] = useState([]); // array of users and state setter
+    const [posts, setPosts] = useState([]); // array of posts and state setter
 
-    useEffect(() => { // hooks version of componentDidMount, gets users and sets state
+    useEffect(() => { // hooks version of componentDidMount, gets posts and sets state
         let isMounted = true; // flag denotes mount status to avoid memory leaks
         fetch('/posts')
             .then(res => res.json())

@@ -62,7 +62,9 @@ const Admin = () => {
                         {/* Switch for toggling content in main frame */}
                         <Switch>
                             <Route exact path={path}>
-                                <h2>Dashboard</h2>
+                                <div className='container-fluid'>
+                                    <h2>Dashboard</h2>
+                                </div>
                             </Route>
 
                             <Route path={`${path}/blog`}>
