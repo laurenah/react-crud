@@ -53,13 +53,12 @@ class BlogCreate extends React.Component {
                         {/* TinyMCE Editor */}
                         <Editor
                             apiKey={tiny_config}
+                            outputFormat='text'
                             value={this.state.content}
                             init={{
                                 height: 400,
                                 menubar: true,
-                                force_br_newlines: true,
-                                force_p_newlines: false,
-                                forced_root_block: '',
+                                force_p_newlines: true
                             }}
                             onEditorChange={this.handleTextChange}
                         />

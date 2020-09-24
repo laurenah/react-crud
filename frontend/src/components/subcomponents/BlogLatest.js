@@ -28,7 +28,7 @@ const BlogLatest = () => {
                             year: 'numeric'
                         })}</span>
                     </div>
-                    <p>{post.content}</p>
+                    <p dangerouslySetInnerHTML={{__html: post.content}}></p>
                 </div>
             )}
         </div> 

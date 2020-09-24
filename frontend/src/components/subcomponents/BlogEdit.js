@@ -66,13 +66,22 @@ class BlogEdit extends React.Component {
                         {/* TinyMCE Editor */}
                         <Editor
                             apiKey={tiny_config}
+                            outputFormat='html'
                             value={this.state.content}
                             init={{
+                                selector: 'textarea',
                                 height: 400,
                                 menubar: true,
-                                force_br_newlines: true,
-                                force_p_newlines: false,
                                 forced_root_block: '',
+                                plugins: [
+                                    'advlist autolink lists link image charmap print preview anchor',
+                                    'searchreplace visualblocks code fullscreen',
+                                    'insertdatetime media table paste code help wordcount'
+                                  ],
+                                  toolbar: 'undo redo | formatselect | ' +
+                                  'bold italic backcolor | alignleft aligncenter ' +
+                                  'alignright alignjustify | bullist numlist outdent indent | ' +
+                                  'removeformat | help',
                             }}
                             onEditorChange={this.handleTextChange}
                         />
