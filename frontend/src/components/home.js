@@ -50,7 +50,7 @@ const Home = () => {
 			<div id='wrapper'>
 				<div id='row'>
 					<div id='blog'>
-						<BlogPost />
+						
 					</div>
 					<div id='projects'>
 						<div className="title">

@@ -24,9 +24,9 @@ class App extends React.Component {
         <Router>
           <Security {...config}>
               <Switch>
-                <Route exact path='/' component={Home} />
+                <Route path='/' exact={true} component={Home} />
                 <Route path='/implicit/callback' component={LoginCallback} />
-                <Route exact path='/blog' component={Blog} />
+                <Route path='/blog' exact={true} component={Blog} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/admin' component={Admin} />
                 <Route 
