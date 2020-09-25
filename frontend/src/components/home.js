@@ -2,6 +2,7 @@ import React from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
 import BlogLatest from './subcomponents/BlogLatest';
+import ProjectLatest from './subcomponents/ProjectLatest';
 
 const Home = () => {
     const { authState, authService } = useOktaAuth();
@@ -57,23 +58,7 @@ const Home = () => {
 							<h2>Projects</h2>
 						</div>
 						<ul className='style1'>
-							<li>
-								<h3>Portfolio Website</h3>
-								<p>You're looking at it right now! This site is built using React with a
-									Node/Express backend that communicates with a MySQL database.</p>
-							</li>
-							<li>
-								<h3>University Capstone Project</h3>
-								<p>In my final semesters at university I was the main developer behind a website for
-									a real business using the CakePHP framework. We built the front and back-end from
-									scratch, including a custom CMS, enabling the site's content to be customised.</p>
-							</li>
-							<li>
-								<h3>ACNH Companion App for iOS</h3>
-								<p>A companion app for Nintendo's Animal Crossing New Horizons. It fetches data from 
-									<a href='https://acnhapi.com'> ACNH API</a> to display the fish and bugs in the
-									game, and provides a guide to other mechanics in the game.</p>
-							</li>
+							<ProjectLatest />
 							<li>
 								<div className='copyright'>
 									<ul>

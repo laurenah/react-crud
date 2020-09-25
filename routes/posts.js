@@ -12,7 +12,6 @@ router.get('/', (req, res, next) => {
 
 // GET the Latest blog post
 router.get('/latest', (req, res) => {
-  console.log('get latest')
   connection.query(`SELECT * from posts ORDER BY id DESC LIMIT 1`, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));

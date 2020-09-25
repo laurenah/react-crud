@@ -53,7 +53,7 @@ class BlogCreate extends React.Component {
                         {/* TinyMCE Editor */}
                         <Editor
                             apiKey={tiny_config}
-                            outputFormat='text'
+                            outputFormat='html'
                             value={this.state.content}
                             init={{
                                 height: 400,

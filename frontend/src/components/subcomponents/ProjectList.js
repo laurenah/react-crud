@@ -47,14 +47,16 @@ const ProjectList = () => {
                             <tr>
                                 <th style={{width: '20%'}}>Name</th>
                                 <th>Description</th>
+                                <th className='created-col' style={{width: '20%'}}>Link</th>
                                 <th className='actions-col'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                         {projects.map(project => // map projects to html elements
                             <tr key={project.id}>
-                                <td>{project.name}</td>
+                                <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{project.name}</td>
                                 <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{project.description}</td>
+                                <td className='created-col'><a href={project.link} alt='project link'>Link</a></td>
                                 <td className='actions-col'>
                                     <ul>
                                         <li><button onClick={() => handleDelete(project.id)}>

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../db');
+var sqlString = require('sqlstring');
 
 /* GET projects listing. */
 router.get('/', (req, res, next) => {
@@ -10,6 +11,13 @@ router.get('/', (req, res, next) => {
     });
 });
 
+// GET the latest 3 projects
+router.get('/latest', (req, res) => {
+    connection.query(`SELECT * from projects ORDER BY id DESC LIMIT 3`, (err, results) => {
+        if (err) throw err;
+        res.send(JSON.stringify(results));
+    });
+});
 
 // GET a single project
 router.get('/:id', (req, res) => {
@@ -22,7 +30,9 @@ router.get('/:id', (req, res) => {
 
 // UPDATE a single project
 router.put('/:id', (req, res) => {
-    connection.query(`UPDATE projects SET name = "${req.body.name}", description = "${req.body.description}"
+    var desc = sqlString.escape(req.body.description); // escape quotes created by formatting
+    connection.query(`UPDATE projects SET name = "${req.body.name}", description = "${desc}", 
+                        link = "${req.body.link}"
                           WHERE id = ${req.params.id}`, (err, results) => {
         if (err) throw err;
     })
@@ -31,7 +41,9 @@ router.put('/:id', (req, res) => {
 // POST project
 router.post('/', (req, res) => {
     var project = req.body;
-    connection.query(`INSERT INTO projects (name, description) VALUES ("${project.name}", "${project.description}")`, (err, results) => {
+    var desc = sqlString.escape(project.description)
+    connection.query(`INSERT INTO projects (name, description, link) VALUES ("${project.name}", 
+                        "${desc}", "${project.link}")`, (err, results) => {
         if (err) throw err;
     })
 });

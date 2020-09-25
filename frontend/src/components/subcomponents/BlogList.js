@@ -54,7 +54,7 @@ const BlogList = () => {
                         <tbody>
                         {posts.map(post => // map posts to html elements
                             <tr key={post.id}>
-                                <td>{post.title}</td>
+                                <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{post.title}</td>
                                 <td style={{overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>{post.content}</td>
                                 <td className='created-col'>{new Date(post.created).toLocaleDateString('en-US', {
                                     month: 'short',

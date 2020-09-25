@@ -26,6 +26,7 @@ CREATE TABLE `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `description` text NOT NULL,
+  `link` text DEFAULT '' NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +37,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1, 'portfolio website', 'You\'re looking at it right now! This site is built using React with a Node/Express backend that communicates with a MySQL database.');
+INSERT INTO `projects` VALUES (1, 'portfolio website', 'You\'re looking at it right now! This site is built using React with a Node/Express backend that communicates with a MySQL database.', null);
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 

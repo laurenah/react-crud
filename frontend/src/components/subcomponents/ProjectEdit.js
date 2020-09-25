@@ -8,10 +8,12 @@ class ProjectEdit extends React.Component {
         this.state = {
             id: props.match.params.projId,
             name: '',
-            description: ''
+            description: '',
+            link: ''
         }
 
         this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleLinkChange = this.handleLinkChange.bind(this);
         this.handleTextChange = this.handleTextChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,13 +24,18 @@ class ProjectEdit extends React.Component {
             .then(project => {
                 this.setState({
                     name: project[0].name,
-                    description: project[0].description
+                    description: project[0].description,
+                    link: project[0].link
                 });
             });
     }
 
     handleNameChange(event) { // change for Title input
         this.setState({name: event.target.value});
+    }
+
+    handleLinkChange(event) {
+        this.setState({link: event.target.value});
     }
 
     handleTextChange(description, editor) { // change for Text Editor
@@ -47,7 +54,8 @@ class ProjectEdit extends React.Component {
             },
             body: JSON.stringify({
                 'name': this.state.name,
-                'description': this.state.description
+                'description': this.state.description,
+                'link': this.state.link
             })
         }).then(alert('Project updated!'))
         .then(window.location = '../project');
@@ -58,11 +66,15 @@ class ProjectEdit extends React.Component {
             <div className="container-fluid">
                 <h1>Editing {this.state.name}</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Title<br/>
+                    <label>Name<br/>
                         <input type='text' value={this.state.name} onChange={this.handleNameChange} />
                     </label>
                     <br/>
-                    <label className='editor'>Content<br/>
+                    <label>Link<br/>
+                        <input type='text' value={this.state.link} onChange={this.handleLinkChange} />
+                    </label>
+                    <br/>
+                    <label className='editor'>Description<br/>
                         {/* TinyMCE Editor */}
                         <Editor
                             apiKey={tiny_config}
@@ -72,16 +84,7 @@ class ProjectEdit extends React.Component {
                                 selector: 'textarea',
                                 height: 400,
                                 menubar: true,
-                                forced_root_block: '',
-                                plugins: [
-                                    'advlist autolink lists link image charmap print preview anchor',
-                                    'searchreplace visualblocks code fullscreen',
-                                    'insertdatetime media table paste code help wordcount'
-                                  ],
-                                  toolbar: 'undo redo | formatselect | ' +
-                                  'bold italic backcolor | alignleft aligncenter ' +
-                                  'alignright alignjustify | bullist numlist outdent indent | ' +
-                                  'removeformat | help',
+                                forced_root_block: ''
                             }}
                             onEditorChange={this.handleTextChange}
                         />
