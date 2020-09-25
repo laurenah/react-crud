@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../../blog.css';
 
 // BlogLatest functional component
@@ -29,6 +30,15 @@ const BlogLatest = () => {
                         })}</span>
                     </div>
                     <p dangerouslySetInnerHTML={{__html: post.content}}></p>
+                    <p className="read-more">
+                        <Link to={{
+                            pathname: 'blog/' + post.id,
+                            state: {post: post}
+                        }} style={{
+                            'textDecoration': 'none',
+                            'color': 'orange'
+                        }}>Read More {'>'}</Link>
+                    </p>
                 </div>
             )}
         </div> 

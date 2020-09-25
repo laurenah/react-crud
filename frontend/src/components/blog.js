@@ -1,26 +1,11 @@
 // imports
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import '../blog.css';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
+import BlogCard from './subcomponents/BlogCard';
 
 // Blog functional component - is the Blog page accessible via the Home page
 const Blog = () =>{
-    const [posts, setPosts] = useState([]); // array of posts and state setter
-
-    useEffect(() => { // hooks version of componentDidMount, gets posts and sets state
-        let isMounted = true; // flag denotes mount status to avoid memory leaks
-        fetch('/posts')
-            .then(res => res.json())
-            .then(posts => {
-                if (isMounted) setPosts(posts);
-            })
-            return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
-    }, []);
-
-    const truncate = (text) => {
-        return text.substring(0, 200) + '...';
-    }
 
     return (
         <div>
@@ -32,26 +17,34 @@ const Blog = () =>{
                     <li><a href='/contact'>Contact</a></li> 
                 </ul>
             </div>
-            <div className="blog-posts">
-                {posts.map(post => 
-                    <div className="blog-card" key={post.id}>
-                        <div className="description">
-                            <h1>{post.title}</h1>
-                            <h2>{new Date(post.created).toLocaleDateString('en-US', {
-                                    month: 'short',
-                                    day: '2-digit',
-                                    year: 'numeric'
-                                })}</h2>
-                            <p>{truncate(post.content)}</p>
-                            <p className="read-more">
-                                <Link to={{
-                                    pathname: 'blog/' + post.id,
-                                    state: {post: post}
-                                }}>Read More {'>'}</Link>
-                            </p>
-                        </div>
-                    </div>
-                )}  
+
+            <BlogCard /> 
+
+            <div className='footer' style={{
+                'width': '100%',
+                'backgroundColor': '#fff',
+                'padding': '20px',
+                'position': 'absolute',
+                'bottom': '0',
+                'color': 'gray'
+            }}>
+                <ul>
+                    <li style={{'display': 'inline', 'padding': '10px'}}>lauren hammond © 2020</li>
+                    <li style={{'display': 'inline', 'padding': '10px'}}>
+                        <a href='https://github.com/laurenah'
+                        style={{
+                            'textDecoration': 'none',
+                            'color': 'gray'
+                        }}>Github</a>
+                    </li>
+                    <li style={{'display': 'inline', 'padding': '10px'}}>
+                        <a href='https://www.linkedin.com/in/lauren-h-81917ab4/'
+                        style={{
+                            'textDecoration': 'none',
+                            'color': 'gray'
+                        }}>Linkedin</a>
+                    </li>
+                </ul>
             </div>
         </div>
         
