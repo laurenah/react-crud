@@ -17,6 +17,8 @@ const AdminSidebar = () => {
                         <div className="sb-sidenav-menu-heading">Content</div>
                             <NavLink to={`${url}/blog`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>Blog List</NavLink>
                             <NavLink to={`${url}/post`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>New Post</NavLink>
+                            <NavLink to={`${url}/project`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>Project List</NavLink>
+                            <NavLink to={`${url}/newproj`} className="nav-link" activeStyle={{color: '#FF8A5B'}}>New Project</NavLink>
                     </div>
                 </div>
             </nav>
