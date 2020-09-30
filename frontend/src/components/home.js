@@ -1,11 +1,16 @@
 import React from 'react';
+import { Gradient } from 'react-gradient';
 import { useOktaAuth } from '@okta/okta-react';
 import { ReactComponent as Logo } from '../laurenah_logo-08.svg';
 import BlogLatest from './subcomponents/BlogLatest';
 import ProjectLatest from './subcomponents/ProjectLatest';
 
+const gradients = [
+	['#FF8A5B', '#ffc75c']
+];
+
 const Home = () => {
-    const { authState, authService } = useOktaAuth();
+	const { authState, authService } = useOktaAuth();
 
     const login = async () => {
         // redirect to '/admin' after login
@@ -27,28 +32,36 @@ const Home = () => {
 
     return (
         <div className='outer-container'>
-		<div className='header'>
+		<Gradient
+          gradients={gradients}
+          property='background'
+          className='header'
+		  duration={6000}
+		  transitionType='sequential'
+		  angle='45deg'
+        >
 			<div className='header-content'>
 				<div className='logo'>
 					<Logo className='monstera' />
 				</div>
 				<div className='info'>
-					<div className='nav-home'>
-						<ul>
-							<li><a href='/'>Home</a></li>
-							<li><a href='/blog'>Blog</a></li>
-							<li><a href='/contact'>Contact</a></li>
-						</ul>
-					</div>
+					<h1 style={{color: '#27474E'}}>Lauren Hammond</h1>
 					<div className='subtitle'>I'm a third generation programmer, passionate about problem solving and
 						learning new things. I love to read, play card games and video games. Some of the most underrated things
 						in life are: lying in the grass on a summer's day, seeing the starry sky in a place far from light
 						pollution, camping with friends, the smell of rain on dry earth (petrichor!).</div>
 				</div>
 			</div>
-		</div>
+		</Gradient>
 		<div className='container'>
 			<div id='wrapper'>
+				<div className='nav-stick'>
+					<ul>
+						<li><a href='/'>Home</a></li>
+						<li><a href='/blog'>Blog</a></li>
+						<li><a href='/contact'>Contact</a></li>
+					</ul>
+				</div>
 				<div id='row'>
 					<div id='blog'>
 						<BlogLatest />

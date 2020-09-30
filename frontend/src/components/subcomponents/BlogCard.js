@@ -29,7 +29,7 @@ const BlogCard = () => {
                                 day: '2-digit',
                                 year: 'numeric'
                             })}</h2>
-                        <p>{truncate(post.content)}</p>
+                        <p dangerouslySetInnerHTML={{__html: truncate(post.content)}}></p>
                         <p className="read-more">
                             <Link to={{
                                 pathname: 'blog/' + post.id,
