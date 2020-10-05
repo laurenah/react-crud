@@ -17,7 +17,7 @@ class BlogPost extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='blog-container'>
                 <div className='small-nav'>
                     <Logo className='monstera logo-sm'/>
                     <ul>
@@ -43,7 +43,7 @@ class BlogPost extends React.Component {
                     'backgroundColor': '#fff',
                     'padding': '20px',
                     'position': 'absolute',
-                    'bottom': '0',
+                    'bottom' : '0',
                     'color': 'gray'
                 }}>
                     <ul>

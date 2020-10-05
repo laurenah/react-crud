@@ -16,6 +16,10 @@ const BlogLatest = () => {
             return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
     }, []);
 
+    const truncate = (text) => {
+        return text.substring(0, 2400) + '...';
+    }
+
     return (
         
         <div className='entry'>
@@ -29,7 +33,7 @@ const BlogLatest = () => {
                             year: 'numeric'
                         })}</span>
                     </div>
-                    <p dangerouslySetInnerHTML={{__html: post.content}}></p>
+                    <p dangerouslySetInnerHTML={{__html: truncate(post.content)}}></p>
                     <p className="read-more">
                         <Link to={{
                             pathname: 'blog/' + post.id,
