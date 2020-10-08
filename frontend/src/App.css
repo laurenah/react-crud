@@ -426,3 +426,40 @@ ul.style1 a:hover {
     font-size: 1em;
   }
 }
+
+/* Card */
+
+.card {
+  perspective: 150rem;
+}
+
+
+.card-side {
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+}
+
+@media screen and (min-width: 1440px) {
+  .card-side.back {
+    margin-left: 70px;
+    border-radius: 100px;
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    top: 0;
+    transform: rotateY(-180deg);
+    background-image: url('./lauren.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .card:hover .card-side.front {
+    transform: rotateY(180deg); 
+  }
+  
+  .card:hover .card-side.back {
+    transform: rotateY(0deg); 
+  }
+
+}
+

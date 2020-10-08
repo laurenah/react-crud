@@ -42,7 +42,15 @@ const Home = () => {
         >
 			<div className='header-content'>
 				<div className='logo'>
-					<Logo className='monstera' />
+					<div className='card'>
+						<div className='card-side front'>
+							<Logo className='monstera' />
+						</div>
+						<div className='card-side back'>
+
+						</div>
+					</div>
+					
 				</div>
 				<div className='info'>
 					<h1 style={{color: '#27474E'}}>Lauren Hammond</h1>
