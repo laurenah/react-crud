@@ -4,6 +4,7 @@ import './App.css';
 import {Security, LoginCallback} from '@okta/okta-react';
 import config from './config.js';
 import Blog from './components/Blog.js';
+import Error from './components/Error.js';
 import Contact from './components/Contact.js';
 import Home from './components/Home.js';
 import Admin from './components/Admin.js';
@@ -35,6 +36,7 @@ class App extends React.Component {
                       <BlogPost {...props} />
                     )}
                 />
+                <Route path='*' component={Error} />
               </Switch>
           </Security>
         </Router>

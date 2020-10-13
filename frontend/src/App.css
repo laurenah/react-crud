@@ -451,14 +451,90 @@ ul.style1 a:hover {
     background-position: center;
     background-repeat: no-repeat;
   }
-  
+
   .card:hover .card-side.front {
-    transform: rotateY(180deg); 
+    transform: rotateY(180deg);
   }
-  
+
   .card:hover .card-side.back {
-    transform: rotateY(0deg); 
+    transform: rotateY(0deg);
   }
 
 }
 
+/* Error Page */
+
+.error-container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--secondary-dark-color);
+  position: relative;
+}
+
+.error-wrap {
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.error-left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.error-right {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  font-size: 1.3em;
+}
+
+.error-img {
+  margin: auto;
+}
+
+.error-img img {
+  width: 100%;
+  max-width: 373px;
+  /*actual image width*/
+  height: auto;
+  /* maintain aspect ratio*/
+  margin: auto;
+  /*optional centering of image*/
+}
+
+@media screen and (max-width: 570px) {
+  .error-img {
+    margin: unset;
+  }
+
+  .error-img img {
+    width: 275px;
+    max-width: unset;
+    height: unset;
+    margin: unset;
+  }
+}
+
+.error-right a,
+.error-right a:visited {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.error-right a:hover {
+  color: var(--secondary-color);
+}
