@@ -54,10 +54,9 @@ const Home = () => {
 				</div>
 				<div className='info'>
 					<h1 style={{color: '#27474E'}}>Lauren Hammond</h1>
-					<div className='subtitle'>I'm a third generation programmer, passionate about problem solving and
-						learning new things. I love to read, play card games and video games. Some of the most underrated things
-						in life are: lying in the grass on a summer's day, seeing the starry sky in a place far from light
-						pollution, camping with friends, the smell of rain on dry earth (petrichor!).</div>
+					<div className='subtitle'>Hey, I'm Lauren, and I'm a third generation programmer. Right now my main interest is
+					in front-end development, but I have lots of experience in full stack development. I'm a huge fan of
+					card games, books, and video games. Coding is what I love to do, so I'll never work a day in my life.</div>
 				</div>
 			</div>
 		</Gradient>
