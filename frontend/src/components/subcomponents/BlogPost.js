@@ -6,7 +6,6 @@ import { ReactComponent as Logo } from '../../laurenah_logo-08.svg';
 class BlogPost extends React.Component {
     constructor(props) {
         super (props);
-        console.log(props.location.state.post)
         this.state = {
             id: props.location.state.post.id,
             title: props.location.state.post.title,

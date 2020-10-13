@@ -32,7 +32,7 @@ const BlogCard = () => {
                         <p dangerouslySetInnerHTML={{__html: truncate(post.content)}}></p>
                         <p className="read-more">
                             <Link to={{
-                                pathname: 'blog/' + post.id,
+                                pathname: 'blog/' + post.title.replace(/\s+/g, '-').toLowerCase(),
                                 state: {post: post}
                             }}>Read More {'>'}</Link>
                         </p>

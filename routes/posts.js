@@ -20,11 +20,21 @@ router.get('/latest', (req, res) => {
 
 // GET a single blog post
 router.get('/:id', (req, res) => {
-  var id = req.params.id
+  var id = req.params.id;
   connection.query(`SELECT * from posts WHERE id=${id}`, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   })
+});
+
+// GET a single blog post by name
+router.get('/:title', (req, res) => {
+  var title = req.params.id.replace('-', ' ');
+  title = title.replace(/(\w)(\w*)/g, function(g0,g1,g2){return g1.toUpperCase() + g2.toLowerCase();});
+  connection.query(`SELECT * from posts WHERE title=${title} LIMIT 1`, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify(results));
+  });
 });
 
 // UPDATE a single blog post

@@ -30,9 +30,9 @@ class App extends React.Component {
                 <Route path='/contact' component={Contact} />
                 <Route path='/admin' component={Admin} />
                 <Route 
-                    path={'/blog/:postId'}
+                    path={'/blog/:postTitle'}
                     render={(props) => (// allows for props to be passed like the post ID
-                    <BlogPost {...props} />
+                      <BlogPost {...props} />
                     )}
                 />
               </Switch>

@@ -39,7 +39,6 @@ body {
 
 .header {
   position: relative;
-  width: 100vw;
   background-color: var(--primary-color);
   height: 550px;
 }
